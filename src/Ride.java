@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -86,10 +87,16 @@ public class Ride implements RideInterface {
             Visitor visitor = visitorQueue.poll();
             System.out.println(visitor.getName() + " is taking the ride " + rideName + ".");
             rideHistory.add(visitor);
+
         } else {
             System.out.println("No visitors in the queue for " + rideName + ".");
         }
     }
+    private void addVisitorToCollection(Visitor visitor) {
+        rideHistory.add(visitor);
+        System.out.println(visitor.getName() + " has been added to the ride history.");
+    }
+
 
     @Override
     public void printRideHistory() {
@@ -97,9 +104,20 @@ public class Ride implements RideInterface {
         if (rideHistory.isEmpty()) {
             System.out.println("No visitors have taken the ride yet.");
         } else {
-            for (Visitor visitor : rideHistory) {
+            Iterator<Visitor> iterator = rideHistory.iterator();
+            while (iterator.hasNext()) {
+                Visitor visitor = iterator.next();
                 System.out.println(visitor.getName() + " (Age: " + visitor.getAge() + ", Address: " + visitor.getAddress() + ")");
             }
         }
+    }
+    // Method to check if a Visitor is in the collection
+    public boolean isVisitorInCollection(Visitor visitor) {
+        return rideHistory.contains(visitor);
+    }
+
+    // Method to get the number of Visitors in the collection
+    public int getNumberOfVisitorsInCollection() {
+        return rideHistory.size();
     }
 }
