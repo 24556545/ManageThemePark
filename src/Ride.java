@@ -70,7 +70,7 @@ public class Ride implements RideInterface {
 
     @Override
     public void printQueue() {
-        System.out.println("Queue for " + rideName + ":");
+        System.out.println("-----------------Queue for " + rideName + "--------------------------");
         if (visitorQueue.isEmpty()) {
             System.out.println("No visitors in the queue.");
         } else {
