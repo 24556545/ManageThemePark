@@ -5,7 +5,8 @@ public class AssignmentTwo {
        // assignmentTwo.partThree();
        // assignmentTwo.partFourA();
        // assignmentTwo.partFourB();
-        assignmentTwo.partFive();
+       // assignmentTwo.partFive();
+        assignmentTwo.partSix();
 
     }
     public void partThree(){
@@ -147,6 +148,27 @@ public class AssignmentTwo {
         ride.printRideHistory();
     }
     public void partSix(){
+        Employee operator = new Employee("Alice", 35, "789 Willow St", "E123", "Ride Operator");
+        Ride ride = new Ride("The Thrilling Ride", 8, operator);
+        ride.setMaxRider(3); // Set maxRider to 3 for this example
+
+        // Create Visitor objects
+        Visitor visitor1 = new Visitor("John", 20, "321 Cedar St", "V101", "Annual Pass");
+        Visitor visitor2 = new Visitor("Emma", 24, "654 Spruce St", "V102", "Single Day Pass");
+        Visitor visitor3 = new Visitor("Liam", 30, "987 Oak St", "V103", "Weekly Pass");
+        Visitor visitor4 = new Visitor("Olivia", 28, "543 Birch St", "V104", "Season Pass");
+        Visitor visitor5 = new Visitor("Noah", 22, "876 Pine St", "V105", "Monthly Pass");
+
+        // Add Visitors to the ride history
+        ride.addVisitorToCollection(visitor1);
+        ride.addVisitorToCollection(visitor2);
+        ride.addVisitorToCollection(visitor3);
+        ride.addVisitorToCollection(visitor4);
+        ride.addVisitorToCollection(visitor5);
+
+        // Export the Visitor details to a file
+        String filename = "ride_history.csv";
+        ride.exportVisitorsToFile(filename);
     }
     public void partSeven(){
 
