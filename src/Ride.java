@@ -61,15 +61,22 @@ public class Ride implements RideInterface {
 
     @Override
     public void removeVisitorFromQueue(Visitor visitor) {
-        visitorQueue.remove(visitor);
-        System.out.println(visitor.getName() + " has been removed from the queue for " + rideName + ".");
+        if (visitorQueue.remove(visitor)) {
+            System.out.println(visitor.getName() + " has been removed from the queue for " + rideName + ".");
+        } else {
+            System.out.println(visitor.getName() + " is not in the queue for " + rideName + ".");
+        }
     }
 
     @Override
     public void printQueue() {
         System.out.println("Queue for " + rideName + ":");
-        for (Visitor visitor : visitorQueue) {
-            System.out.println(visitor.getName());
+        if (visitorQueue.isEmpty()) {
+            System.out.println("No visitors in the queue.");
+        } else {
+            for (Visitor visitor : visitorQueue) {
+                System.out.println(visitor.getName() + " (Age: " + visitor.getAge() + ", Address: " + visitor.getAddress() + ")");
+            }
         }
     }
 
@@ -87,8 +94,12 @@ public class Ride implements RideInterface {
     @Override
     public void printRideHistory() {
         System.out.println("Ride history for " + rideName + ":");
-        for (Visitor visitor : rideHistory) {
-            System.out.println(visitor.getName());
+        if (rideHistory.isEmpty()) {
+            System.out.println("No visitors have taken the ride yet.");
+        } else {
+            for (Visitor visitor : rideHistory) {
+                System.out.println(visitor.getName() + " (Age: " + visitor.getAge() + ", Address: " + visitor.getAddress() + ")");
+            }
         }
     }
 }
