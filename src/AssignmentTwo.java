@@ -2,11 +2,12 @@ public class AssignmentTwo {
     public static void main(String[] args) {
 
         AssignmentTwo assignmentTwo = new AssignmentTwo();
-       // assignmentTwo.partThree();
-       // assignmentTwo.partFourA();
-       // assignmentTwo.partFourB();
-       // assignmentTwo.partFive();
-        assignmentTwo.partSix();
+        assignmentTwo.partThree();
+        assignmentTwo.partFourA();
+        assignmentTwo.partFourB();
+       assignmentTwo.partFive();
+       assignmentTwo.partSix();
+        assignmentTwo.partSeven();
 
     }
     public void partThree(){
@@ -171,6 +172,21 @@ public class AssignmentTwo {
         ride.exportVisitorsToFile(filename);
     }
     public void partSeven(){
+        // Create a new Ride object
+        Employee operator = new Employee("Alice", 35, "789 Willow St", "E123", "Ride Operator");
+        Ride ride = new Ride("The Thrilling Ride", 8, operator);
+        ride.setMaxRider(3); // Set maxRider to 3 for this example
 
+        // Import the file created in part 7
+        String filename = "ride_history.csv";
+        ride.importVisitorsFromFile(filename);
+
+        // Print the number of visitors in the LinkedList
+        System.out.println("Number of visitors in the LinkedList: " + ride.rideHistory.size());
+
+        // Print all visitors in the LinkedList
+        ride.printRideHistory();
     }
+
+
 }
