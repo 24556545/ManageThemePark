@@ -62,7 +62,7 @@ public class Ride implements RideInterface {
     @Override
     public void removeVisitorFromQueue(Visitor visitor) {
         if (visitorQueue.remove(visitor)) {
-            System.out.println(visitor.getName() + " has been removed from the queue for " + rideName + ".");
+            System.out.println("***************"+visitor.getName() + " has been removed from the queue for " + rideName + "********************");
         } else {
             System.out.println(visitor.getName() + " is not in the queue for " + rideName + ".");
         }

@@ -12,11 +12,11 @@ public class AssignmentTwo {
         Ride ride = new Ride("DC Rivals HyperCoaster", 5, operator);
 
         // Create Visitor objects
-        Visitor visitor1 = new Visitor("Michele", 25, "456 Oak St","V001","Locals One Pass");
-        Visitor visitor2 = new Visitor("Kevin", 28, "789 Pine St","V002","Locals One Pass Lite");
-        Visitor visitor3 = new Visitor("Charlie", 22, "101 Maple St","V003","Mega Pass");
-        Visitor visitor4 = new Visitor("Disney", 30, "202 Elm St","V004","One Pass");
-        Visitor visitor5 = new Visitor("Eve", 27, "303 Birch St","V005","Single Day Pass");
+        Visitor visitor1 = new Visitor("Tom", 25, "456 Oak St","V001","Locals One Pass");
+        Visitor visitor2 = new Visitor("Sherly", 28, "789 Pine St","V002","Locals One Pass Lite");
+        Visitor visitor3 = new Visitor("Ben", 22, "101 Maple St","V003","Mega Pass");
+        Visitor visitor4 = new Visitor("David", 30, "202 Elm St","V004","One Pass");
+        Visitor visitor5 = new Visitor("Jack", 27, "303 Birch St","V005","Single Day Pass");
 
         // Add Visitors to the Queue
         ride.addVisitorToQueue(visitor1);
