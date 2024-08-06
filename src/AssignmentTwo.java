@@ -2,8 +2,9 @@ public class AssignmentTwo {
     public static void main(String[] args) {
 
         AssignmentTwo assignmentTwo = new AssignmentTwo();
-        assignmentTwo.partThree();
-        assignmentTwo.partFourA();
+       // assignmentTwo.partThree();
+       // assignmentTwo.partFourA();
+        assignmentTwo.partFourB();
 
     }
     public void partThree(){
@@ -69,6 +70,35 @@ public class AssignmentTwo {
         ride.printRideHistory();
     }
     public void partFourB(){
+        // Create a new Ride object
+        Employee operator = new Employee("Alice", 35, "789 Willow St", "E123", "Ride Operator");
+        Ride ride = new Ride("The Amazing Ride", 7, operator);
+
+        // Create Visitor objects
+        Visitor visitor1 = new Visitor("John", 20, "321 Cedar St", "V101", "Annual Pass");
+        Visitor visitor2 = new Visitor("Emma", 24, "654 Spruce St", "V102", "Single Day Pass");
+        Visitor visitor3 = new Visitor("Liam", 30, "987 Oak St", "V103", "Weekly Pass");
+        Visitor visitor4 = new Visitor("Olivia", 28, "543 Birch St", "V104", "Season Pass");
+        Visitor visitor5 = new Visitor("Noah", 22, "876 Pine St", "V105", "Monthly Pass");
+
+        // Add Visitors to the ride history collection
+        ride.addVisitorToCollection(visitor1);
+        ride.addVisitorToCollection(visitor2);
+        ride.addVisitorToCollection(visitor3);
+        ride.addVisitorToCollection(visitor4);
+        ride.addVisitorToCollection(visitor5);
+
+        // Print all Visitors in the collection before sorting
+        System.out.println("Ride history before sorting:");
+        ride.printRideHistory();
+
+        // Sort the collection
+        ride.sortRideHistory();
+
+        // Print all Visitors in the collection after sorting
+        System.out.println("Ride history after sorting:");
+        ride.printRideHistory();
+
     }
     public void partFive(){
     }
