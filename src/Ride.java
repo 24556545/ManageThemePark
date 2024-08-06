@@ -9,12 +9,12 @@ public class Ride implements RideInterface {
     private Employee operator;
     private Queue<Visitor> visitorQueue;
     private LinkedList<Visitor> rideHistory;
+    private int maxRider;
+    private int numOfCycles;
+
 
     // Default constructor
     public Ride() {
-        this.visitorQueue = new LinkedList<>();
-        this.rideHistory = new LinkedList<>();
-
 
     }
 
@@ -24,6 +24,8 @@ public class Ride implements RideInterface {
         this.operator = operator;
         this.visitorQueue = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRider = 1;  // Default value
+        this.numOfCycles = 0;
     }
 
     // Getters and Setters
@@ -54,6 +56,22 @@ public class Ride implements RideInterface {
     public void assignOperator(Employee operator) {
         this.operator = operator;
     }
+    public int getMaxRider() {
+        return maxRider;
+    }
+
+    public void setMaxRider(int maxRider) {
+        this.maxRider = maxRider;
+    }
+
+    public int getNumOfCycles() {
+        return numOfCycles;
+    }
+
+    public void setNumOfCycles(int numOfCycles) {
+        this.numOfCycles = numOfCycles;
+    }
+
 
     @Override
     public void addVisitorToQueue(Visitor visitor) {
@@ -72,7 +90,7 @@ public class Ride implements RideInterface {
 
     @Override
     public void printQueue() {
-        System.out.println("-----------------Queue for " + rideName + "--------------------------");
+       // System.out.println("-----------------Queue for " + rideName + "--------------------------");
         if (visitorQueue.isEmpty()) {
             System.out.println("No visitors in the queue.");
         } else {
@@ -84,15 +102,27 @@ public class Ride implements RideInterface {
 
     @Override
     public void runOneCycle() {
-        if (!visitorQueue.isEmpty()) {
-            Visitor visitor = visitorQueue.poll();
-            System.out.println(visitor.getName() + " is taking the ride " + rideName + ".");
-            rideHistory.add(visitor);
-
-        } else {
-            System.out.println("No visitors in the queue for " + rideName + ".");
+        if (operator == null) {
+            System.out.println("No ride operator assigned. The ride cannot be run.");
+            return;
         }
+
+        if (visitorQueue.isEmpty()) {
+            System.out.println("No visitors in the queue. The ride cannot be run.");
+            return;
+        }
+
+        int count = 0;
+        while (count < maxRider && !visitorQueue.isEmpty()) {
+            Visitor visitor = visitorQueue.poll();
+            addVisitorToCollection(visitor);
+            count++;
+        }
+
+        numOfCycles++;
+        System.out.println("Ride has been run for cycle " + numOfCycles + ".");
     }
+
     public void addVisitorToCollection(Visitor visitor) {
         rideHistory.add(visitor);
         System.out.println(visitor.getName() + " has been added to the ride history.");

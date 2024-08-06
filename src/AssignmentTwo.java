@@ -4,7 +4,8 @@ public class AssignmentTwo {
         AssignmentTwo assignmentTwo = new AssignmentTwo();
        // assignmentTwo.partThree();
        // assignmentTwo.partFourA();
-        assignmentTwo.partFourB();
+       // assignmentTwo.partFourB();
+        assignmentTwo.partFive();
 
     }
     public void partThree(){
@@ -101,6 +102,49 @@ public class AssignmentTwo {
 
     }
     public void partFive(){
+        // Create a new Ride object
+        Employee operator = new Employee("Alice", 35, "789 Willow St", "E123", "Ride Operator");
+        Ride ride = new Ride("The Thrilling Ride", 8, operator);
+        ride.setMaxRider(3); // Set maxRider to 3 for this example
+
+        // Create Visitor objects
+        Visitor visitor1 = new Visitor("John", 20, "321 Cedar St", "V101", "Annual Pass");
+        Visitor visitor2 = new Visitor("Emma", 24, "654 Spruce St", "V102", "Single Day Pass");
+        Visitor visitor3 = new Visitor("Liam", 30, "987 Oak St", "V103", "Weekly Pass");
+        Visitor visitor4 = new Visitor("Olivia", 28, "543 Birch St", "V104", "Season Pass");
+        Visitor visitor5 = new Visitor("Noah", 22, "876 Pine St", "V105", "Monthly Pass");
+        Visitor visitor6 = new Visitor("Sophia", 31, "111 Elm St", "V106", "Day Pass");
+        Visitor visitor7 = new Visitor("Mia", 29, "222 Maple St", "V107", "Annual Pass");
+        Visitor visitor8 = new Visitor("Ava", 27, "333 Oak St", "V108", "Single Day Pass");
+        Visitor visitor9 = new Visitor("Isabella", 33, "444 Cedar St", "V109", "Weekly Pass");
+        Visitor visitor10 = new Visitor("Ethan", 26, "555 Pine St", "V110", "Season Pass");
+
+        // Add Visitors to the queue
+        ride.addVisitorToQueue(visitor1);
+        ride.addVisitorToQueue(visitor2);
+        ride.addVisitorToQueue(visitor3);
+        ride.addVisitorToQueue(visitor4);
+        ride.addVisitorToQueue(visitor5);
+        ride.addVisitorToQueue(visitor6);
+        ride.addVisitorToQueue(visitor7);
+        ride.addVisitorToQueue(visitor8);
+        ride.addVisitorToQueue(visitor9);
+        ride.addVisitorToQueue(visitor10);
+
+        // Print all Visitors in the queue
+        System.out.println("-------------------Queue before running a cycle:------------------------");
+        ride.printQueue();
+
+        // Run one cycle
+        ride.runOneCycle();
+
+        // Print all Visitors in the queue after one cycle is run
+        System.out.println("-------------------Queue after running one cycle:-------------------");
+        ride.printQueue();
+
+        // Print all Visitors in the collection
+        System.out.println("-------------------Ride history after running one cycle:-------------------------");
+        ride.printRideHistory();
     }
     public void partSix(){
     }
